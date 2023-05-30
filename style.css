@@ -15,7 +15,7 @@
     var(--clr-neutral-0)
   );
 
-  --card-width: 440px;
+  --card-width: 280px;
   --card-gaps: 20px;
   --card-bdr: 1.5px solid #ccc;
   --card-bdr-image: linear-gradient;
@@ -425,10 +425,9 @@ input:not(:checked) + .slider + .label-left {
 
 .card {
   position: relative;
-  margin: 100px;
+  margin: 50px;
   width: var(--card-width);
   border: 1px solid var(--clr-neutral-700);
-  /*border-image: var(--gradient-card-bdr) 1;*/
   border-radius: var(--card-bdr-radius);
   padding: var(--card-padding);
   background: var(--gradient-card-bg);
