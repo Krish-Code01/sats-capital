@@ -1,6 +1,39 @@
 const switchButton = document.getElementById("switchButton");
 const cardContainer1 = document.getElementById("cardContainer1");
 const cardContainer2 = document.getElementById("cardContainer2");
+let previousScrollAmount = 0; // Track the previous scroll amount
+window.addEventListener("scroll", () => {
+  const scrollAmount = window.scrollY;
+  const scrollThreshold = 5; // Adjust this value to control the sensitivity of the scroll
+
+  if (scrollAmount < scrollThreshold) {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  }
+});
+const parallaxImage = document.querySelector(".parallax-image");
+
+parallaxImage.addEventListener("mousemove", event => {
+  const mouseX = event.clientX;
+  const mouseY = event.clientY;
+
+  const image = parallaxImage.querySelector("img");
+
+  const imageWidth = image.offsetWidth;
+  const imageHeight = image.offsetHeight;
+
+  const offsetX = (mouseX / window.innerWidth - 0.5) * 10;
+  const offsetY = (mouseY / window.innerHeight - 0.5) * 10;
+
+  image.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+});
+
+parallaxImage.addEventListener("mouseleave", () => {
+  const image = parallaxImage.querySelector("img");
+  image.style.transform = "translate(0, 0)";
+});
 
 switchButton.addEventListener("click", () => {
   cardContainer1.classList.toggle("active");
